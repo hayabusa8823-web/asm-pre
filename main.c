@@ -12,11 +12,16 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <errno.h>
 
 //プロトタイプ
 size_t ft_strlen(const char *s);
 char *ft_strcpy(char *dst, const char *src);
 int ft_strcmp(char *s1, char *s2);
+ssize_t ft_write(int fildes, const void *buf, size_t nbyte);
+
+ssize_t ft_read(int fildes, void *buf, size_t nbyte);
+char *ft_strdup(const char *s1);
 
 int main(void)
 {
@@ -55,5 +60,45 @@ int main(void)
 	printf("ft_strcmp:%d\n", ft_strcmp("", "abce"));
 	printf("-------------------\n");
 
+	printf("-----ft_write-----\n");
+	// write(1, "abc\n", 4);
+	printf("honke:%d\n", write(1, "abc\n", 4));
+	// ft_write(1, "abc\n", 4);
+	printf("ft_write:%d\n", ft_write(1, "abc\n", 4));
+
+	//エラーケース
+	int number;
+	printf("ft_write:%d\n", ft_write(1, NULL, 4));
+	number = errno;
+	printf("error: %s\n", strerror(number));
+	printf("honke:%d\n", write(1, NULL, 4));
+	number = errno;
+	printf("error: %s\n", strerror(number));
+	printf("-------------------\n");
+
+	printf("-----ft_read-----\n");
+	char buf1[10];
+	char buf2[10];
+
+	printf("honke:%d\n", read(0, buf1, 10));
+	printf("ft_read:%d\n", ft_read(0, buf2, 10));
+
+	//エラーケース
+	printf("honke:%d\n", read(0, NULL, 10));
+	number = errno;
+	printf("error: %s\n", strerror(number));
+	printf("ft_read:%d\n", ft_read(0, NULL, 10));
+	number = errno;
+	printf("error: %s\n", strerror(number));
+	printf("-------------------\n");
+
+	printf("-----ft_strdup-----\n");
+	char *str11;
+	str11 = strdup("test");
+	printf("strdup:%s\n", str11);
+	char *str12;
+	str12 = ft_strdup("test");
+	printf("ft_strdup:%s\n", str11);
+	printf("-------------------\n");
 	return (0);
 }

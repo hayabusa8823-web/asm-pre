@@ -23,8 +23,10 @@ loop:
 compare:
   sub rax, r8
   cmp rax, 0
+  ;0よりも大きい場合（signed）
   jg  plus
   cmp rax, 0
+    ;0よりも小さい場合（signed）
   jl  minus
   ret
 plus:
