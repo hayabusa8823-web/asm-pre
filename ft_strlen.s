@@ -1,11 +1,11 @@
 global  _ft_strlen
-sectiion  .text
+section  .text
 _ft_strlen:
 ;rdi:*str
 ;カウンタを初期化
-  xor rcx
+  mov rcx, 0
 ;例外処理→いらない気がする
-  cmp [rdi + rcx],0
+  cmp rdi, 0
   je  error
 ;ループ処理 & ジャッジ
 loop:
