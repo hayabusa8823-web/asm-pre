@@ -25,6 +25,7 @@ typedef struct s_list
 
 int ft_list_size(t_list *begin_list);
 
+
 int main(void)
 {
 	printf("-----ft_list_size-----\n");
@@ -35,11 +36,13 @@ int main(void)
 	list2->data = strdup("test2");
 	list2->next = list3;
 	t_list *list1 = malloc(sizeof(t_list*));
-	list1->data = strdup("test");
+	list1->data = strdup("test1");
 	list1->next = list2;
 
 	printf("list1->data:%s\n", list1->data);
-	printf("sizeof(t_list):%d\n", sizeof(t_list));
+	printf("sizeof(t_list):%d\n", sizeof(t_list *));
+	printf("sizeof(t_list->data):%d\n", sizeof(list1->data));
+	printf("sizeof(t_list->next):%d\n", sizeof(list1->next));
 	printf("list1:%p\n", list1);
 	printf("list1->data:%p\n", list1->data);
 	printf("list1->next:%p\n", list1->next);
@@ -49,6 +52,9 @@ int main(void)
 	printf("list3:%p\n", list3);
 	int cnt = ft_list_size(list1);
 	printf("list_size:%d\n", cnt);
+	printf("-------------------\n");
+
+	printf("-----ft_list_push_front-----\n");
 	printf("-------------------\n");
 	return (0);
 }

@@ -13,7 +13,7 @@ _ft_list_size:
 loop:
   cmp rdi, 0
   jz  end
-  mov rdi, [rdi - 32]
+  mov rdi, [rdi + 8]
   inc rcx
   jmp loop
 

@@ -22,7 +22,7 @@ $(NAME): $(OBJS)
 	# $(CC)$(CFLAGS) -c $< -o $@
 
 bonus: all $(BOBJS)
- 	ar -rc $(NAME) $(BOBJS)
+	ar -rc $(NAME) $(BOBJS)
 
 # $(BOBJS):%.s
 # 	$(CC) $(CFLAGS) -c $< -o $@
