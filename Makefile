@@ -6,11 +6,11 @@ CC := gcc
 
 SRCS :=	ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s ft_read.s ft_strdup.s
 
-BSRCS := 
+BSRCS := ft_list_size_bonus.s
 
 OBJS := $(SRCS:%.s=%.o)
 
-# BOBJS := $(BSRCS:%.s=%.o)
+BOBJS := $(BSRCS:%.s=%.o)
 
 all: $(NAME)
 
@@ -21,8 +21,8 @@ $(NAME): $(OBJS)
 	nasm -fmacho64 -o $@ $<
 	# $(CC)$(CFLAGS) -c $< -o $@
 
-# bonus: all $(BOBJS)
-# 	ar -rc $(NAME) $(BOBJS)
+bonus: all $(BOBJS)
+ 	ar -rc $(NAME) $(BOBJS)
 
 # $(BOBJS):%.s
 # 	$(CC) $(CFLAGS) -c $< -o $@

@@ -14,14 +14,20 @@
 #include <string.h>
 #include <errno.h>
 
+typedef struct s_list
+{
+	void *data;
+	struct s_list *next;
+} t_list;
+
 //プロトタイプ
 size_t ft_strlen(const char *s);
 char *ft_strcpy(char *dst, const char *src);
 int ft_strcmp(char *s1, char *s2);
 ssize_t ft_write(int fildes, const void *buf, size_t nbyte);
-
 ssize_t ft_read(int fildes, void *buf, size_t nbyte);
 char *ft_strdup(const char *s1);
+int ft_list_size(t_list *begin_list);
 
 int main(void)
 {
@@ -99,6 +105,10 @@ int main(void)
 	char *str12;
 	str12 = ft_strdup("test");
 	printf("ft_strdup:%s\n", str11);
+	printf("-------------------\n");
+
+	printf("-----ft_list_size-----\n");
+
 	printf("-------------------\n");
 	return (0);
 }
