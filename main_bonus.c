@@ -24,7 +24,7 @@ typedef struct s_list
 //プロトタイプ
 
 int ft_list_size(t_list *begin_list);
-
+void ft_list_push_front(t_list **begin_list, void *data);
 
 int main(void)
 {
@@ -55,6 +55,12 @@ int main(void)
 	printf("-------------------\n");
 
 	printf("-----ft_list_push_front-----\n");
+	char *new_data = strdup("new_front");
+	ft_list_push_front(&list1, new_data);
+	printf("list1->data:%s\n", list1->data);
+	printf("list1->next->data:%s\n", list1->next->data);
+	printf("list1->next->next->data:%s\n", list1->next->next->data);
+	printf("list1->next->next->next->data:%s\n", list1->next->next->next->data);
 	printf("-------------------\n");
 	return (0);
 }

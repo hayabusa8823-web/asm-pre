@@ -6,7 +6,7 @@ CC := gcc
 
 SRCS :=	ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s ft_read.s ft_strdup.s
 
-BSRCS := ft_list_size_bonus.s
+BSRCS := ft_list_size_bonus.s ft_list_push_front.s
 
 OBJS := $(SRCS:%.s=%.o)
 
