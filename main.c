@@ -64,6 +64,8 @@ int main(void)
 	printf("ft_strcmp:%d\n", ft_strcmp("abcd", "abc"));
 	printf("honke:%d\n", strcmp("", "abce"));
 	printf("ft_strcmp:%d\n", ft_strcmp("", "abce"));
+	printf("honke:%d\n", strcmp("\200\179", "ab"));
+	printf("ft_strcmp:%d\n", ft_strcmp("\200\179", "ab"));
 	printf("-------------------\n");
 
 	printf("-----ft_write-----\n");
